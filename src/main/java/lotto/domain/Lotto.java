@@ -32,7 +32,7 @@ public class Lotto {
         return numbers.stream()
                 .anyMatch(i -> i < MIN_LOTTO_NUMBER || i > MAX_LOTTO_NUMBER);
     }
-    
+
 
     public int countMatch(Lotto otherLotto) {
         return (int) numbers.stream()
