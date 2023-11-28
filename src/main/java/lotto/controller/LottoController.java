@@ -5,6 +5,7 @@ import lotto.domain.Lotto;
 import lotto.domain.LottoStore;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.WinningNumbers;
+import lotto.domain.WinningResult;
 import lotto.util.ExceptionHandler;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -26,6 +27,10 @@ public class LottoController {
         outputView.printIssuedLotto(lottoStore.getIssuedLotto(), purchaseAmount.count());
         Lotto winningLotto = ExceptionHandler.repeatUntilValid(this::handleWinningLotto);
         WinningNumbers winningNumbers = ExceptionHandler.repeatUntilValid(() -> handleWinningNumbers(winningLotto));
+
+        WinningResult winningResult = WinningResult.from(winningNumbers, lottoStore.getIssuedLotto());
+        String yield = winningResult.calculateYield(purchaseAmount);
+        outputView.printWinningStatistics(winningResult.sortedResult(), yield);
     }
 
     private PurchaseAmount handlePurchaseAmount() {

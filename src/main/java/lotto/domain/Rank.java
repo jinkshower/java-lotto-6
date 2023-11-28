@@ -36,4 +36,12 @@ public enum Rank {
         return prizeMoney;
     }
 
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public BonusStatus getBonusStatus() {
+        return bonusStatus;
+    }
+
 }
