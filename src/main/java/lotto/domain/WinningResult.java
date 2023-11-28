@@ -1,11 +1,13 @@
 package lotto.domain;
 
+import java.text.DecimalFormat;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
 public class WinningResult {
 
+    private static final String YIELD_FORMAT = "#,##0.0%";
     private final Map<Rank, Integer> winningResult;
 
     private WinningResult(Map<Rank, Integer> winningResult) {
@@ -29,5 +31,12 @@ public class WinningResult {
 
     public Map<Rank, Integer> getWinningResult() {
         return new EnumMap<>(winningResult);
+    }
+
+    public String calculateYield(PurchaseAmount purchaseAmount) {
+        double yield = (double) totalPrizeMoney() / purchaseAmount.getPurchaseAmount();
+
+        DecimalFormat decimalFormat = new DecimalFormat(YIELD_FORMAT);
+        return decimalFormat.format(yield);
     }
 }

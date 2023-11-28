@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -14,14 +15,6 @@ class WinningResultTest {
 
     private final WinningNumbers winningNumbers =
             new WinningNumbers(new Lotto(List.of(1, 2, 3, 4, 5, 6)), 7);
-    @DisplayName("당첨결과를 확인할 수 있다")
-    @ParameterizedTest
-    @MethodSource("provideSampleLotto")
-    void createWinningResult(List<Lotto> issuedLotto, Map<Rank, Integer> expected) {
-        WinningResult winningResult = WinningResult.from(winningNumbers, issuedLotto);
-
-        assertThat(winningResult.getWinningResult()).isEqualTo(expected);
-    }
 
     static Stream<Arguments> provideSampleLotto() {
         return Stream.of(
@@ -42,4 +35,22 @@ class WinningResultTest {
         );
     }
 
+    @DisplayName("당첨결과를 확인할 수 있다")
+    @ParameterizedTest
+    @MethodSource("provideSampleLotto")
+    void createWinningResult(List<Lotto> issuedLotto, Map<Rank, Integer> expected) {
+        WinningResult winningResult = WinningResult.from(winningNumbers, issuedLotto);
+
+        assertThat(winningResult.getWinningResult()).isEqualTo(expected);
+    }
+
+    @DisplayName("수익률을 구할 수 있다")
+    @ParameterizedTest
+    @MethodSource("provideSampleLotto")
+    void createYield(List<Lotto> issuedLotto) {
+        WinningResult winningResult = WinningResult.from(winningNumbers, issuedLotto);
+
+        assertThat(winningResult.calculateYield(new PurchaseAmount(5000)))
+                .isEqualTo("40,631,100.0%");
+    }
 }
