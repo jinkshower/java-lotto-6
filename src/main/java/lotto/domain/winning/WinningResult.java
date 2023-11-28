@@ -1,4 +1,4 @@
-package lotto.domain;
+package lotto.domain.winning;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -7,6 +7,8 @@ import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import lotto.domain.lotto.Lotto;
+import lotto.domain.PurchaseAmount;
 
 public class WinningResult {
 

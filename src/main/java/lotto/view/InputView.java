@@ -36,13 +36,14 @@ public class InputView {
     private List<Integer> parseStringToInteger(String text) {
         List<Integer> generated = new ArrayList<>();
         String[] trimmedText = text.replace(" ", "").split(",");
-        for (String string: trimmedText) {
+        for (String string : trimmedText) {
             generated.add(Integer.parseInt(string));
         }
         return generated;
     }
 
     public int readBonusNumber() {
+        System.out.println();
         System.out.println("보너스 번호를 입력해 주세요.");
         try {
             return Integer.parseInt(Console.readLine());

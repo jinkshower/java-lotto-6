@@ -1,11 +1,11 @@
 package lotto.controller;
 
 import java.util.List;
-import lotto.domain.Lotto;
+import lotto.domain.lotto.Lotto;
 import lotto.domain.LottoStore;
 import lotto.domain.PurchaseAmount;
-import lotto.domain.WinningNumbers;
-import lotto.domain.WinningResult;
+import lotto.domain.winning.WinningNumbers;
+import lotto.domain.winning.WinningResult;
 import lotto.util.ExceptionHandler;
 import lotto.view.InputView;
 import lotto.view.OutputView;

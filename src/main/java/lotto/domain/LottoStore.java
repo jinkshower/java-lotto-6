@@ -2,6 +2,9 @@ package lotto.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.domain.lotto.Lotto;
+import lotto.domain.lotto.LottoNumberGenerator;
+import lotto.domain.lotto.NumberGenerator;
 
 public class LottoStore {
 

@@ -2,10 +2,9 @@ package lotto.view;
 
 import java.util.List;
 import java.util.Map;
-import java.util.StringJoiner;
-import lotto.domain.BonusStatus;
-import lotto.domain.Lotto;
-import lotto.domain.Rank;
+import lotto.domain.winning.BonusStatus;
+import lotto.domain.lotto.Lotto;
+import lotto.domain.winning.Rank;
 
 public class OutputView {
 
@@ -28,9 +27,11 @@ public class OutputView {
         for (Lotto lotto : issuedLotto) {
             System.out.println(lotto.getNumbers());
         }
+        System.out.println();
     }
 
     public void printWinningStatistics(Map<Rank, Integer> winningResult, String yield) {
+        System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
         winningResult.forEach(this::printResult);
