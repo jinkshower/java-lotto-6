@@ -25,6 +25,7 @@ public class LottoController {
 
         outputView.printIssuedLotto(lottoStore.getIssuedLotto(), purchaseAmount.count());
         Lotto winningLotto = ExceptionHandler.repeatUntilValid(this::handleWinningLotto);
+        WinningNumbers winningNumbers = ExceptionHandler.repeatUntilValid(() -> handleWinningNumbers(winningLotto));
     }
 
     private PurchaseAmount handlePurchaseAmount() {
@@ -35,5 +36,10 @@ public class LottoController {
     private Lotto handleWinningLotto() {
         List<Integer> userInput = inputView.readWinningLotto();
         return new Lotto(userInput);
+    }
+
+    private WinningNumbers handleWinningNumbers(Lotto winningLotto) {
+        int bonusNumber = inputView.readBonusNumber();
+        return new WinningNumbers(winningLotto, bonusNumber);
     }
 }

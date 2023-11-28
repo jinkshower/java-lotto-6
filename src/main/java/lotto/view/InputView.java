@@ -41,4 +41,13 @@ public class InputView {
         }
         return generated;
     }
+
+    public int readBonusNumber() {
+        System.out.println("보너스 번호를 입력해 주세요.");
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
+        }
+    }
 }
