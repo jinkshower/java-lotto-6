@@ -13,10 +13,10 @@ public class WinningNumbers {
 
     private void validate(Lotto winningLotto, int bonusNumber) {
         if (winningLotto.contains(bonusNumber)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
         }
         if (isOutOfRange(bonusNumber)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
         }
     }
 

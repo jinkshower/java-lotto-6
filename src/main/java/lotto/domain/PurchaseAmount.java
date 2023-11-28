@@ -13,10 +13,10 @@ public class PurchaseAmount {
 
     private void validate(int userInput) {
         if (userInput % MIN_PURCHASE_AMOUNT != 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
         }
         if (userInput < MIN_PURCHASE_AMOUNT) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
         }
     }
 

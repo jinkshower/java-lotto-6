@@ -19,13 +19,13 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         if (numbers.size() != LOTTO_SIZE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
         }
         if (Set.copyOf(numbers).size() != numbers.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
         }
         if (isOutOfRange(numbers)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 유효한 입력이 아닙니다.");
         }
     }
 
